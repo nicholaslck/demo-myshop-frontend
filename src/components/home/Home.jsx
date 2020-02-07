@@ -24,6 +24,15 @@ export default class Home extends Component {
 			},{
 				imageUrl: "/logo192.png",
 				name: "product 6"
+			},{
+				imageUrl: "/logo192.png",
+				name: "product 7"
+			},{
+				imageUrl: "/logo192.png",
+				name: "product 8"
+			},{
+				imageUrl: "/logo192.png",
+				name: "product 9"
 			}]
 		}
 	}
@@ -34,8 +43,10 @@ export default class Home extends Component {
 	
 	render() {
 		return (
-			<div ref="productList" className="product-list">
-				{this.renderProductItemList(this.state.products)}
+			<div ref="productList" className="product-list container">
+				<div class="row row-cols-3">
+					{this.renderProductItemList(this.state.products)}
+				</div>
 			</div>
 		)
 	}
@@ -43,24 +54,18 @@ export default class Home extends Component {
 	renderProductItemList(products) {
 		
 		return products.map((product, index) => {
+
+			const imageUrl = product.imageUrl
+			const name = product.name
+			
 			return (
 				<Link key={index} to={"/products/".concat(index)}>
-					{this.renderProductItem(product)}
+					<div className="product-item">
+						<img src={imageUrl} alt={name} />
+						<p>{name}</p>
+					</div>
 				</Link>
 			)
 		})
-	}
-
-	renderProductItem(product) {
-
-		const imageUrl = product.imageUrl
-		const name = product.name
-
-		return (
-			<div className="product-item">
-				<img src={imageUrl} alt={name} />
-				<p>{name}</p>
-			</div>
-		)
 	}
 }

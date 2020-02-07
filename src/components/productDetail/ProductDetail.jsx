@@ -7,7 +7,7 @@ export default class ProductDetail extends Component {
 			<div className="product-detail">
 				<p> Product Id is {this.props.productId} </p>
 				<Link to="/">
-					<button>Back</button>
+					<button className="btn btn-primary">Back</button>
 				</Link>
 			</div>
 		)
